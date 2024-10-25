@@ -29,6 +29,9 @@ EOF
     git_repo             = "terragoat"
     yor_trace            = "347af3cd-4f70-4632-aca3-4d5e30ffc0b6"
   })
+  metadata_options {
+    http_tokens = "required"
+  }
 }
 
 resource "aws_ebs_volume" "web_host_storage" {
@@ -267,7 +270,6 @@ resource "aws_flow_log" "vpcflowlogs" {
     yor_trace            = "6808d4b7-45bc-4d1d-9523-96757a3add3a"
   })
 }
-
 
 resource "aws_s3_bucket" "flowbucket" {
   bucket        = "${local.resource_prefix.value}-flowlogs"
